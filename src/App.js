@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import taylorState from './taylorState.js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+export default function App() {
+    const [quote, img, upCount, downCount, count] = taylorState(0)
+    console.log({img})
+  
+    return (
+        <div className="App">
+            <h4>Count: {count}</h4>
+            <button onClick={upCount}>Increase Count</button>
+            <button onClick={downCount}>Decrease Count</button>
+            <h2>{quote}</h2>
+            <img src={img.url} alt="taylor"/>
+        </div>
+    )
 }
-
-export default App;
